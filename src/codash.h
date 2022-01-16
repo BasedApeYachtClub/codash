@@ -5,6 +5,8 @@ void *find_first(void *xs, size_t len, size_t size, bool (*predicate)(void *));
 //void *find_nth(void *xs, size_t len, size_t size, bool (*predicate)(void *), size_t n);
 //size_t count(void *xs, size_t len, size_t size, bool (*predicate)(void *));
 
+bool all(void *xs, size_t len, size_t size, bool (*predicate)(void *));
+
 // TODO len is not number of bytes docs
 //void map(void *dst, void *src, size_t dst_size, size_t src_size, size_t len, void (*f)(void *d, void *s));
 //void filter(void *dst, void *src, size_t len, size_t size, bool (*predicate)(void *));
@@ -20,7 +22,6 @@ void *find_first(void *xs, size_t len, size_t size, bool (*predicate)(void *));
 // (cartesian foreach funccalls)
 // find_last
 // numpy level slicing to new array
-// all
 // none (literally !any)
 // any
 // fill (constant value, not byte)

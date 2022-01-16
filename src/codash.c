@@ -14,3 +14,15 @@ void *find_first(void *xs, size_t len, size_t size, bool (*predicate)(void *))
     }
     return NULL;
 }
+
+bool all(void *xs, size_t len, size_t size, bool (*predicate)(void *))
+{
+    if (len == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return predicate(xs) && all(xs + size, len - 1, size, predicate);
+    }
+}
