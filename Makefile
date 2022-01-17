@@ -1,11 +1,14 @@
 .PHONY: clean
 
-%.o: src/%.c
-	$(CC) $(CFLAGS) -c $<
+build-dir:
+	[ -d build/ ] || mkdir build/
+
+build/%.o: src/%.c build-dir
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -r *.o
+	[ ! -d build/ ] || rm -r build/
 
-test: test.o codash.o
-	$(CC) -o test *.o
-	./test
+test: build/test.o build/codash.o
+	$(CC) $(CFLAGS) -o build/test build/*.o
+	build/test
