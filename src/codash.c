@@ -26,3 +26,22 @@ bool all(void *xs, size_t len, size_t size, bool (*predicate)(void *))
         return predicate(xs) && all(xs + size, len - 1, size, predicate);
     }
 }
+
+void foreach (void *xs, size_t len, size_t size, void (*action)(void *x))
+{
+    FOR_INDEX(i, len)
+    {
+        action(xs + i * size);
+    }
+}
+
+void cartesian_foreach(void *xs, size_t len_xs, size_t size_x, void *ys, size_t len_ys, size_t size_y, void (*action)(void *x, void *y))
+{
+    FOR_INDEX(i, len_xs)
+    {
+        FOR_INDEX(j, len_ys)
+        {
+            action(xs + i * size_x, ys + j * size_y);
+        }
+    }
+}
