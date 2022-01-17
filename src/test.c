@@ -28,4 +28,10 @@ int main()
     int c[] = {4, 4, 4, 4, 4, 4};
     ASSERT(!all(a, 6, sizeof(int), is_4));
     ASSERT(all(c, 6, sizeof(int), is_4));
+
+    ASSERT(!any(a, 6, sizeof(int), is_greater_than_10));
+    ASSERT(any(a, 6, sizeof(int), is_4));
+
+    ASSERT(none(a, 6, sizeof(int), is_greater_than_10));
+    ASSERT(!none(a, 6, sizeof(int), is_4));
 }
