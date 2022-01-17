@@ -1,4 +1,5 @@
 .PHONY: clean
+.DEFAULT_GOAL = test
 
 build-dir:
 	[ -d build/ ] || mkdir build/
@@ -11,4 +12,4 @@ clean:
 
 test: build/test.o build/codash.o
 	$(CC) $(CFLAGS) -o build/test build/*.o
-	build/test
+	build/test && echo "All tests passed"
