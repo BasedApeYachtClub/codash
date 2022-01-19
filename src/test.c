@@ -47,6 +47,12 @@ int main()
     ASSERT(!all(a, 6, sizeof(int), is_4));
     ASSERT(all(c, 6, sizeof(int), is_4));
 
+
+    ASSERT(!any(a, 6, sizeof(int), is_greater_than_10));
+    ASSERT(any(a, 6, sizeof(int), is_4));
+
+    ASSERT(none(a, 6, sizeof(int), is_greater_than_10));
+    ASSERT(!none(a, 6, sizeof(int), is_4));
     int d[] = {1, 2, 3, 4, 5};
     counter = 0;
     foreach(d, 5, sizeof(int), count);
